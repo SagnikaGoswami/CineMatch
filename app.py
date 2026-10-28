@@ -30,7 +30,11 @@ with open('similarity.pkl', 'rb') as file:
     similarity = pickle.load(file)
 
 # fetch API key
+# fetch API key
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
+
+if not TMDB_API_KEY:
+    TMDB_API_KEY = st.secrets.get("TMDB_API_KEY")
 
 if not TMDB_API_KEY:
     raise ValueError("TMDB_API_KEY is missing.")
