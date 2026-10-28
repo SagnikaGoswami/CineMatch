@@ -160,9 +160,7 @@ Deployment requires connecting the GitHub repository, selecting `app.py` as the 
 
 ### Live Application
 
-**Coming soon.**
-
-The deployed application URL will be added here.
+**[Live Demo](https://cinematch-ai-movie-finder.streamlit.app/)**
 
 ## 🔮 Future Improvements
 
