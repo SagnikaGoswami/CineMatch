@@ -1,0 +1,560 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* ==========================================
+   1. GLOBAL STYLING
+========================================== */
+
+html, body {
+    font-family: 'Inter', sans-serif;
+}
+
+.stApp {
+    background:
+        radial-gradient(
+            ellipse at 50% 60%,
+            rgba(109, 56, 193, 0.18),
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 50% 10%,
+            rgba(75, 35, 150, 0.12),
+            transparent 50%
+        ),
+        #09090f;
+
+    color: #f5f5f7;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+.block-container {
+    max-width: 1200px;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+
+/* ==========================================
+   2. HIDE DEFAULT STREAMLIT ELEMENTS
+========================================== */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+/* ==========================================
+   STREAMLIT RUNNING & STOP INDICATORS
+========================================== */
+
+/* Keep Streamlit header visible */
+header[data-testid="stHeader"] {
+    display: flex !important;
+    visibility: visible !important;
+    background: transparent !important;
+}
+
+/* Show Streamlit status widget */
+div[data-testid="stStatusWidget"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Keep toolbar visible */
+div[data-testid="stToolbar"] {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* ==========================================
+   3. HERO SECTION
+========================================== */
+
+.hero-section {
+    text-align: center;
+    padding: 65px 20px 45px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 9px 20px;
+    border-radius: 50px;
+
+    background: rgba(155, 100, 255, 0.12);
+    border: 1px solid rgba(155, 100, 255, 0.3);
+
+    color: #b994ff;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+.hero-section h1 {
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800;
+
+    line-height: 1.15;
+    letter-spacing: -2px;
+
+    max-width: 900px;
+    margin: auto;
+
+    color: #ffffff;
+}
+
+.hero-section h1 span {
+    background: linear-gradient(
+        90deg,
+        #a56cff,
+        #d4b5ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+    color: #a5a0b8;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    max-width: 550px;
+    margin: 25px auto 0;
+}
+
+
+/* ==========================================
+   4. MOVIE SELECTBOX
+========================================== */
+
+div[data-testid="stSelectbox"] {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Selectbox label */
+
+div[data-testid="stSelectbox"] label {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-bottom: 1rem;
+}
+
+div[data-testid="stSelectbox"] label p {
+    width: 100%;
+    text-align: center !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #d5d0e5 !important;
+}
+
+/* Dropdown field */
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+    background: #191625 !important;
+
+    border: 1px solid #51406c !important;
+    border-radius: 14px !important;
+
+    min-height: 58px !important;
+
+    color: #ffffff !important;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Selected movie text */
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] span {
+    color: #ffffff !important;
+    font-size: 15px !important;
+}
+
+/* Search input */
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] input {
+    color: #ffffff !important;
+    font-size: 15px !important;
+}
+
+/* Dropdown arrow */
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] svg {
+    fill: #b994ff !important;
+    color: #b994ff !important;
+}
+
+/* Hover */
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] > div:hover {
+    border-color: #a855f7 !important;
+}
+
+/* Focus */
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] > div:focus-within {
+    border-color: #a855f7 !important;
+
+    box-shadow:
+        0 0 0 2px rgba(168, 85, 247, 0.15) !important;
+}
+
+
+/* ==========================================
+   5. RECOMMEND BUTTON
+========================================== */
+
+/*
+   Streamlit places the button inside
+   several nested layout containers.
+
+   This targets the button wrapper
+   and centers it on the page.
+*/
+
+div[data-testid="stButton"] {
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+/* Actual button */
+
+div[data-testid="stButton"] button {
+    width: 100% !important;
+    min-height: 58px !important;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #9333ea,
+        #a855f7
+    ) !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 14px !important;
+
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.35) !important;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+/* Button text */
+
+div[data-testid="stButton"] button p {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 17px !important;
+}
+
+/* Hover effect */
+
+div[data-testid="stButton"] button:hover {
+    background: linear-gradient(
+        135deg,
+        #9333ea,
+        #a855f7,
+        #c084fc
+    ) !important;
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 35px rgba(147, 51, 234, 0.45) !important;
+}
+
+/* Active effect */
+
+div[data-testid="stButton"] button:active {
+    transform: scale(0.98) !important;
+}
+
+/* Actual button */
+
+div[data-testid="stButton"] > button,
+div.stButton > button {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    min-height: 58px !important;
+
+    padding: 14px 25px !important;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #9333ea,
+        #a855f7
+    ) !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 14px !important;
+
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.3) !important;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease !important;
+}
+
+/* Button text */
+
+div[data-testid="stButton"] > button p,
+div.stButton > button p {
+    color: #ffffff !important;
+
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+
+    margin: 0 !important;
+}
+
+/* Hover effect */
+
+div[data-testid="stButton"] > button:hover,
+div.stButton > button:hover {
+    background: linear-gradient(
+        135deg,
+        #9333ea,
+        #a855f7,
+        #c084fc
+    ) !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 35px rgba(147, 51, 234, 0.45) !important;
+}
+
+/* Active effect */
+
+div[data-testid="stButton"] > button:active,
+div.stButton > button:active {
+    transform: scale(0.98) !important;
+}
+
+/* Keyboard focus */
+
+div[data-testid="stButton"] > button:focus-visible,
+div.stButton > button:focus-visible {
+    outline: 2px solid #c084fc !important;
+    outline-offset: 3px !important;
+}
+
+
+/* ==========================================
+   6. RECOMMENDATION RESULTS
+========================================== */
+
+.results-title {
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #ffffff;
+
+    margin-top: 65px;
+    margin-bottom: 30px;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* ==========================================
+   7. MOVIE POSTERS
+========================================== */
+
+div[data-testid="stImage"] {
+    overflow: visible;
+}
+
+div[data-testid="stImage"] img {
+    width: 100%;
+
+    border-radius: 15px;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Poster hover */
+
+div[data-testid="stImage"] img:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    border-color: rgba(168, 85, 247, 0.5);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(124, 58, 237, 0.15);
+}
+
+
+/* ==========================================
+   8. MOVIE TITLES
+========================================== */
+
+div[data-testid="stColumn"] p {
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #e8e4f3;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   9. SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #09090f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #473267;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8050c5;
+}
+
+
+/* ==========================================
+   10. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+    .block-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .hero-section {
+        padding: 40px 10px 30px;
+    }
+
+    .hero-badge {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .hero-section h1 {
+        font-size: 38px;
+        letter-spacing: -1px;
+    }
+
+    .hero-section p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    div[data-testid="stSelectbox"],
+    div[data-testid="stButton"] {
+        max-width: 100% !important;
+    }
+
+    div[data-testid="stButton"] > button {
+        min-height: 52px !important;
+        font-size: 15px !important;
+    }
+
+    .results-title {
+        font-size: 24px;
+        margin-top: 45px;
+    }
+
+    div[data-testid="stColumn"] p {
+        font-size: 14px;
+    }
+}
+
+
+/* ==========================================
+   11. SMALL MOBILE SCREENS
+========================================== */
+
+@media (max-width: 480px) {
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 13px;
+    }
+
+    .hero-badge {
+        padding: 7px 14px;
+    }
+
+    .results-title {
+        font-size: 22px;
+    }
+}
