@@ -30,7 +30,6 @@ with open('similarity.pkl', 'rb') as file:
     similarity = pickle.load(file)
 
 # fetch API key
-# fetch API key
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 
 if not TMDB_API_KEY:
@@ -61,7 +60,8 @@ def recommend(movie):
     recommended_movies_posters = []
 
     for i in recommended_indices:
-        movie_id = i[0]
+        recommended_movie_index = i[0]
+        movie_id = movies_list.iloc[recommended_movie_index]['movie_id']
         recommended_movies.append(movies_list.iloc[i[0]].title)
         recommended_movies_posters.append(fetch_poster(movie_id))
 
